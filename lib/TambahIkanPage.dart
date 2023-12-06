@@ -15,31 +15,36 @@ class TambahIkanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor:Color.fromARGB(255, 163, 206, 241) ,
         title: Text('Tambah Tugas'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextField(
-              controller: _judulController,
-              decoration: InputDecoration(labelText: 'Nama Ikan'),
-            ),
-            TextField(
-              controller: _deskripsiController,
-              decoration: InputDecoration(labelText: 'Deskripsi'),
-            ),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: () {
-                Tugas tugas = Tugas(_judulController.text, _deskripsiController.text);
-                onSubmit(tugas);
-                Navigator.pop(context);
-              },
-              child: Text('Simpan'),
-            ),
-          ],
+      body: Container(
+        decoration: BoxDecoration(color: const Color.fromARGB(255, 114, 168, 212)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextField(
+                controller: _judulController,
+                decoration: InputDecoration(labelText: 'Nama Ikan'),
+              ),
+              TextField(
+                controller: _deskripsiController,
+                decoration: InputDecoration(labelText: 'Deskripsi'),
+              ),
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: () {
+                  Tugas tugas =
+                      Tugas(_judulController.text, _deskripsiController.text);
+                  onSubmit(tugas);
+                  Navigator.pop(context);
+                },
+                child: Text('Simpan'),
+              ),
+            ],
+          ),
         ),
       ),
     );
